@@ -25,6 +25,7 @@ def main():
         logging.basicConfig(format='%(levelname)s:%(message)s',
             level=args.log_level, stream=sys.stdout)
     
+    # Functionality goes here
     logging.info('Started script - %s', 'newScript.py')
     logging.error('Test Error message')
 
