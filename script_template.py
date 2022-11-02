@@ -44,7 +44,7 @@ def main() -> 1:
         help='Log file location. If not specified, log messages will be printed to the screen.')
     args = parser.parse_args()
     # Set up logging
-    if args.log_file is not None:
+    if args.log_file:
         # Note: filemode is set to clobber by default
         logging.basicConfig(format='%(asctime)s %(levelname)s:%(message)s', filename=args.log_file, filemode='w',
             level=args.log_level, datefmt='%Y/%m/%d %I:%M:%S')
