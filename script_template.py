@@ -16,7 +16,7 @@ import argparse
 import logging
 import pathlib
 
-def new_function(parameter_a: int = 1) -> str:
+def example_function(parameter_a: int = 1) -> str:
     """
     Do <this> and return <that>.
 
@@ -45,16 +45,17 @@ def main() -> 1:
     args = parser.parse_args()
     # Set up logging
     if args.log_file is not None:
+        # Note: filemode is set to clobber by default
         logging.basicConfig(format='%(asctime)s %(levelname)s:%(message)s', filename=args.log_file, filemode='w',
             level=args.log_level, datefmt='%Y/%m/%d %I:%M:%S')
     else:
         logging.basicConfig(format='%(levelname)s:%(message)s',
             level=args.log_level, stream=sys.stdout)
     
-    
+
     # Functionality goes here
     logging.info('Started script - %s', 'newScript.py')
-    print(new_function(3))
+    print(example_function(3))
     return 0
 
 
