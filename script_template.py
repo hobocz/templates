@@ -5,7 +5,7 @@ Description: Does some amazing things, then some more amazing
     things, then some more. Wow it's amazing.
 Author: Chris Zaleski
 Python Version: 3.x
-Date: 2022-08-22
+Date: 2022-11-03
 
 This script requires that "some_module" be installed within the Python
 environment you are running this script in.
@@ -53,7 +53,7 @@ def main() -> 1:
             level=args.log_level, stream=sys.stdout)
     # Validate command line arguments (if necessary)
 
-    
+
     # Functionality starts here
     logging.info('Started script - %s', 'newScript.py')
     print(example_function(3))

@@ -6,7 +6,7 @@ Description: Performs a simple file search given a starting directory and
     timestamp) in a directory if multiple files are found within that directory.
 Author: Chris Zaleski
 Python Version: 3.x
-Date: 2022-11-22
+Date: 2022-11-03
 """
 
 import sys
@@ -80,7 +80,7 @@ def main() -> 1:
     if not args.search_string.isascii() or '/' in args.search_string or '\\' in args.search_string:
         logging.critical('--search_string is restricted to the ASCII character set, and cannot include "/" or "\\"')
         return 1
-        
+
     # Functionality starts here
     file_list = find_files(args.search_dir, args.search_string, args.newest_only)
     if not file_list:
