@@ -52,12 +52,10 @@ def main() -> 1:
         logging.basicConfig(format='%(levelname)s:%(message)s',
             level=args.log_level, stream=sys.stdout)
     
-
     # Functionality starts here
     logging.info('Started script - %s', 'newScript.py')
     print(example_function(3))
     return 0
-
 
 if __name__ == '__main__':
     raise SystemExit(main())
