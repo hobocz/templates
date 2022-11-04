@@ -24,10 +24,10 @@ def only_odd(func):
         while True:
             result = func(*args, **kwargs)
             if (result % 2) != 0:
-                print('@decorated: It\'s odd! I love odd numbers!')
+                logging.info('@decorated: It\'s odd! I love odd numbers!')
                 break
             else:
-                print('@decorated: It\'s even! Throw it away!')
+                logging.info('@decorated: It\'s even! Throw it away!')
         return result
     return odd_func
 
@@ -42,7 +42,7 @@ def get_a_number() -> int:
         Random integer.
     """
     num = random.randint(1, 10)
-    print('Got number: ' + str(num))
+    logging.info('Got number: ' + str(num))
     return num
 
 def main() -> 1:
