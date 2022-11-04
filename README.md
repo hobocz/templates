@@ -1,1 +1,6 @@
-A collection of templates for easier script writing
+A collection of templates for various functionality. These scripts have
+undergone basic testing in both Windows and Linux systems.
+
+PLEASE NOTE: Rigorous testing is still required as there are certainly
+some environments, parameters, etc, that were not accomodated and may
+uncover issues.
