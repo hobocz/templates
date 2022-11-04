@@ -68,10 +68,6 @@ def main() -> 1:
     parser.add_argument('-n', '--newest_only', action='store_true',
         help='For each directory, only return the file with the newest modified timestamp')
     args = parser.parse_args()
-    # Validate command line arguments (if necessary)
-    if not args.search_string.isascii() or '/' in args.search_string or '\\' in args.search_string:
-        logging.critical('--search_string is restricted to the ASCII character set, and cannot include "/" or "\\"')
-        return 1
     # Set up logging
     if args.log_file:
         # Note: filemode is set to clobber by default
@@ -80,7 +76,11 @@ def main() -> 1:
     else:
         logging.basicConfig(format='%(levelname)s:%(message)s',
             level=args.log_level, stream=sys.stdout)
-
+    # Validate command line arguments (if necessary)
+    if not args.search_string.isascii() or '/' in args.search_string or '\\' in args.search_string:
+        logging.critical('--search_string is restricted to the ASCII character set, and cannot include "/" or "\\"')
+        return 1
+        
     # Functionality starts here
     file_list = find_files(args.search_dir, args.search_string, args.newest_only)
     if not file_list:

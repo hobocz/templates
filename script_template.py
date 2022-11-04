@@ -51,6 +51,8 @@ def main() -> 1:
     else:
         logging.basicConfig(format='%(levelname)s:%(message)s',
             level=args.log_level, stream=sys.stdout)
+    # Validate command line arguments (if necessary)
+
     
     # Functionality starts here
     logging.info('Started script - %s', 'newScript.py')
