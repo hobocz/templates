@@ -7,7 +7,6 @@ Description: Performs a simple file search given a starting directory and
 Author: Chris Zaleski
 Python Version: 3.x
 Date: 2022-11-22
-
 """
 
 import sys
