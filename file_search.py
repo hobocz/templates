@@ -2,8 +2,8 @@
 """
 File name: file_search.py
 Description: Performs a simple file search given a starting directory and 
-    a search string. Can optionally return only the newest file (latest timestamp)
-    in a directory if multiple files are found within that directory.
+    a search string. Can optionally return only the newest file (latest modified 
+    timestamp) in a directory if multiple files are found within that directory.
 Author: Chris Zaleski
 Python Version: 3.x
 Date: 2022-11-22
@@ -27,7 +27,7 @@ def find_files(search_dir: pathlib.Path, search_string: str, newest_only: bool =
     search_string : str
         The string to match in the file name.
     newest_only : bool
-        For each directory, only return the file with the latest timestamp.
+        For each directory, only return the file with the latest modified timestamp.
 
     Returns
     -------
@@ -67,7 +67,7 @@ def main() -> 1:
     parser.add_argument('-s', '--search_string', required=True, type=str,
         help='The string to search in the file names')
     parser.add_argument('-n', '--newest_only', action='store_true',
-        help='For each directory, only return the file with the newest timestamp')
+        help='For each directory, only return the file with the newest modified timestamp')
     args = parser.parse_args()
     # Validate command line arguments (if necessary)
     if not args.search_string.isascii() or '/' in args.search_string or '\\' in args.search_string:
