@@ -14,7 +14,7 @@ import sys
 import argparse
 import logging
 import pathlib
-#import re
+import re
 
 def find_files(search_dir: pathlib.Path, search_string: str, newest_only: bool = False) -> list[str]:
     """
@@ -35,19 +35,20 @@ def find_files(search_dir: pathlib.Path, search_string: str, newest_only: bool =
         A list of file name strings.
     """
     # Find the files
-    #file_match = re.compile(re.escape(search_string), re.IGNORECASE)
+    file_match = re.compile(re.escape(search_string), re.IGNORECASE)
     file_list = []
-    for dir in pathlib.Path(search_dir).glob('**/'): # recursively get directories
+    for dir in pathlib.Path(search_dir).glob('**/'): # recursively get directories one at a time
         latest_file = None
-        for file in dir.glob(search_string):
-            #if file_match.search(str(file)):
-            if newest_only:
-                if not latest_file:
-                    latest_file = file
-                elif file.stat().st_mtime > latest_file.stat().st_mtime:
-                    latest_file = file
-            else:
-                file_list.append(str(file))
+        #for file in dir.glob(search_string):
+        for file in dir.iterdir():
+            if file.is_file() and file_match.search(file.name):
+                if newest_only:
+                    if not latest_file:
+                        latest_file = file
+                    elif file.stat().st_mtime > latest_file.stat().st_mtime:
+                        latest_file = file
+                else:
+                    file_list.append(str(file))
         if newest_only and latest_file:
             file_list.append(str(latest_file))
 

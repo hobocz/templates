@@ -53,7 +53,7 @@ def main() -> 1:
             level=args.log_level, stream=sys.stdout)
     
 
-    # Functionality goes here
+    # Functionality starts here
     logging.info('Started script - %s', 'newScript.py')
     print(example_function(3))
     return 0
