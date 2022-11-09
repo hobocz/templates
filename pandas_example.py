@@ -26,7 +26,7 @@ def main() -> 1:
         help='Verbosity of logging: DEBUG, INFO, WARNING, ERROR, CRITICAL')
     parser.add_argument('--log_file', type=pathlib.Path, default=None,
         help='Log file location. If not specified, log messages will be printed to the screen.')
-    parser.add_argument('-d', '--data_file', type=pathlib.Path, default='test_data\MLB Player Batting 2022.csv',
+    parser.add_argument('-d', '--data_file', type=pathlib.Path, default='test_data/MLB Player Batting 2022.csv',
         help='Location of the "MLB Player Batting 2022.csv" file.')
     args = parser.parse_args()
     # Set up logging
