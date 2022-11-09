@@ -76,12 +76,11 @@ def main() -> 1:
     else:
         logging.basicConfig(format='%(levelname)s:%(message)s',
             level=args.log_level, stream=sys.stdout)
-    # Validate command line arguments (if necessary)
+    # Additional argument validation (if necessary)
     if not args.search_string.isascii() or '/' in args.search_string or '\\' in args.search_string:
         logging.critical('--search_string is restricted to the ASCII character set, and cannot include "/" or "\\"')
         return 1
 
-    # Functionality starts here
     file_list = find_files(args.search_dir, args.search_string, args.newest_only)
     if not file_list:
         print("No files found")

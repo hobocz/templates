@@ -1,7 +1,7 @@
 """
 File name: pandas_example.py
-Description: Reads a csv file of baseball statistics and 
-    produces some simple analyses and charts
+Description: Reads a csv file of 2022 baseball batting
+    statistics and produces some simple analyses
 Author: Chris Zaleski
 Python Version: 3.x
 Date: 2022-11-08
