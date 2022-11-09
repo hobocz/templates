@@ -1,6 +1,5 @@
 # My ignores
 .vscode/
-test_data/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
