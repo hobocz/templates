@@ -64,10 +64,7 @@ def main() -> 1:
     else:
         logging.basicConfig(format='%(levelname)s:%(message)s',
             level=args.log_level, stream=sys.stdout)
-    # Validate command line arguments (if necessary)
 
-    
-    # Functionality starts here
     odds_only = []
     for t in range(args.total_numbers):
         odds_only.append(get_a_number())

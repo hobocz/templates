@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 File name: multiprocessing_example.py
-Description: A simple starter template for the 'use as completed' pattern.
+Description: A simple starter template for the 'use as completed' 
+    multiprocessing pattern.
 Author: Chris Zaleski
 Python Version: 3.x
 Date: 2022-11-05
@@ -58,9 +59,8 @@ def main() -> 1:
         logging.basicConfig(format='%(levelname)s:%(message)s',
             level=args.log_level, stream=sys.stdout)
 
-    # Functionality starts here
-    with ProcessPoolExecutor() as executor:
-        job_future_list = [executor.submit(a_job, n, args.max_time) for n in range(args.num_jobs)]
+    with ProcessPoolExecutor() as PPE:
+        job_future_list = [PPE.submit(a_job, n, args.max_time) for n in range(args.num_jobs)]
         for job_future in as_completed(job_future_list):
             print(job_future.result())
     return 0
