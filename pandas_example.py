@@ -8,6 +8,7 @@ Date: 2022-11-08
 
 This script requires that "pandas" be installed within the Python
 environment you are running this script in.
+Note: "numpy" should get installed by default as a dependency.
 
 File: "MLB Player Batting 2022.csv" is credited to www.baseball-reference.com
 """

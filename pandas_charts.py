@@ -8,6 +8,7 @@ Date: 2022-11-08
 
 This script requires that "pandas" and "matplotlib" be installed 
 within the Python environment you are running this script in.
+Note: "numpy" should get installed by default as a dependency.
 
 File: "MLB Player Batting 2022.csv" is credited to www.baseball-reference.com
 """
@@ -51,20 +52,26 @@ def main() -> 1:
     PBDF[['Player', 'Team', 'Lg', 'Pos Summary', 'Name-additional']] = \
         PBDF[['Player', 'Team', 'Lg', 'Pos Summary', 'Name-additional']].astype(pd.StringDtype())
 
+    # Apply a default style to charts
     matplotlib.style.use('ggplot')
-
+    # Create a pie chart for runs per player, with at least 50 games, on the Astros only
     HOU = PBDF[(PBDF['Team'] == 'HOU') & (PBDF['G'] >= 50)][['Player', 'R']]
     run_vals = HOU['R']
+    # The lambda function calculates the original values to be shown in the pie slices
     run_vals.plot.pie(labels=HOU['Player'], title = 'Astros: Runs per player with\nat least 50 games', 
         ylabel = '', legend = False, autopct=lambda x: '{:.0f}'.format(x*run_vals.sum()/100))
 
+    # Create a scatterplot with trend line for home runs vs strike outs, and show
+    # the correlation value in the title
     corr_value = PBDF['HR'].corr(PBDF['SO'], method = 'pearson')
     title_str = 'Home Runs vs Strike Outs\nPearson Correlation: ' + str(round(corr_value, 2))
     PBDF.plot.scatter(x ='HR', y ='SO', title = title_str, xlabel = 'Home Runs', ylabel = 'Strike Outs')
+    # 'z' and 'p' below are for calculating the trendline
     z = np.polyfit(PBDF['HR'], PBDF['SO'], 1)
     p = np.poly1d(z)
-    plt.plot(PBDF['HR'],p(PBDF['HR']),"r--")
+    plt.plot(PBDF['HR'], p(PBDF['HR']), "r--")
 
+    # Create a boxplot for the distribution of home runs per team
     PBDF[['Team','HR']].boxplot(by = 'Team', xlabel = 'Home Runs', ylabel = 'Teams', vert = False)
     plt.suptitle('')
     plt.title('Distribution of Home Runs by Team')
