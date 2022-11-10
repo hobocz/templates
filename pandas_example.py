@@ -20,6 +20,7 @@ import pathlib
 import pandas as pd
 
 def main() -> 1:
+    # --------------------------------------------------
     # Parse command line arguments
     parser = argparse.ArgumentParser(description='Please use command line options in the form --commands')
     log_levels = ('DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL')
@@ -27,9 +28,11 @@ def main() -> 1:
         help='Verbosity of logging: DEBUG, INFO, WARNING, ERROR, CRITICAL')
     parser.add_argument('--log_file', type=pathlib.Path, default=None,
         help='Log file location. If not specified, log messages will be printed to the screen.')
+    # In the default path, a forward slash '/' is interpreted correctly in both Windows and Linux
     parser.add_argument('-d', '--data_file', type=pathlib.Path, default='test_data/MLB Player Batting 2022.csv',
         help='Location of the "MLB Player Batting 2022.csv" file.')
     args = parser.parse_args()
+    # --------------------------------------------------
     # Set up logging
     if args.log_file:
         # Note: filemode is set to clobber by default
@@ -39,7 +42,8 @@ def main() -> 1:
         logging.basicConfig(format='%(levelname)s:%(message)s',
             level=args.log_level, stream=sys.stdout)
 
-    # PBDF = Player Batting DataFrame
+    # --------------------------------------------------
+    # Functionality starts here
     PBDF = pd.read_csv(args.data_file)
     # Update some column names for readability
     PBDF = PBDF.rename(columns={'Name': 'Player', 'Tm': 'Team'})
@@ -84,4 +88,4 @@ def main() -> 1:
     return 0
 
 if __name__ == '__main__':
-    raise SystemExit(main())
+    sys.exit(main())

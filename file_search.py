@@ -33,12 +33,11 @@ def find_files(search_dir: pathlib.Path, search_string: str, newest_only: bool =
     list[str]
         A list of file name strings.
     """
-    # Find the files
     file_match = re.compile(re.escape(search_string), re.IGNORECASE)
     file_list = []
-    for dir in pathlib.Path(search_dir).glob('**/'): # recursively get directories one at a time
+    # recursively get directories one at a time (required for 'newest_only' functionality)
+    for dir in pathlib.Path(search_dir).glob('**/'): 
         latest_file = None
-        #for file in dir.glob(search_string):
         for file in dir.iterdir():
             if file.is_file() and file_match.search(file.name):
                 if newest_only:
@@ -54,6 +53,7 @@ def find_files(search_dir: pathlib.Path, search_string: str, newest_only: bool =
     return file_list
 
 def main() -> 1:
+    # --------------------------------------------------
     # Parse command line arguments
     parser = argparse.ArgumentParser(description='Please use command line options in the form --commands')
     log_levels = ('DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL')
@@ -68,6 +68,7 @@ def main() -> 1:
     parser.add_argument('-n', '--newest_only', action='store_true',
         help='For each directory, only return the file with the newest modified timestamp')
     args = parser.parse_args()
+    # --------------------------------------------------
     # Set up logging
     if args.log_file:
         # Note: filemode is set to clobber by default
@@ -76,18 +77,22 @@ def main() -> 1:
     else:
         logging.basicConfig(format='%(levelname)s:%(message)s',
             level=args.log_level, stream=sys.stdout)
+    # --------------------------------------------------
     # Additional argument validation (if necessary)
     if not args.search_string.isascii() or '/' in args.search_string or '\\' in args.search_string:
         logging.critical('--search_string is restricted to the ASCII character set, and cannot include "/" or "\\"')
         return 1
 
+    # --------------------------------------------------
+    # Functionality starts here
     file_list = find_files(args.search_dir, args.search_string, args.newest_only)
     if not file_list:
         print("No files found")
     else:
         for f in file_list:
             print(f)
+            
     return 0
 
 if __name__ == '__main__':
-    raise sys.exit(main())
+    sys.exit(main())

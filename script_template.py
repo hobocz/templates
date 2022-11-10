@@ -35,6 +35,7 @@ def example_function(parameter_a: int = 1) -> str:
     return 'Did it!'
 
 def main() -> 1:
+    # --------------------------------------------------
     # Parse command line arguments
     parser = argparse.ArgumentParser(description='Please use command line options in the form --commands')
     log_levels = ('DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL')
@@ -43,6 +44,7 @@ def main() -> 1:
     parser.add_argument('--log_file', type=pathlib.Path, default=None,
         help='Log file location. If not specified, log messages will be printed to the screen.')
     args = parser.parse_args()
+    # --------------------------------------------------
     # Set up logging
     if args.log_file:
         # Note: filemode is set to clobber by default
@@ -51,13 +53,15 @@ def main() -> 1:
     else:
         logging.basicConfig(format='%(levelname)s:%(message)s',
             level=args.log_level, stream=sys.stdout)
+    # --------------------------------------------------
     # Additional argument validation (if necessary)
 
-
+    # --------------------------------------------------
     # Functionality starts here
     logging.info('Started script - %s', 'newScript.py')
     print(example_function(3))
+
     return 0
 
 if __name__ == '__main__':
-    raise SystemExit(main())
+    sys.exit(main())

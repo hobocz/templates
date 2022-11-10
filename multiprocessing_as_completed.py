@@ -38,6 +38,7 @@ def a_job(job_id: int = 1, max_time: int = 2) -> str:
     return 'Job #' + str(job_id) + ', interval: ' + str(interval)
 
 def main() -> 1:
+    # --------------------------------------------------
     # Parse command line arguments
     parser = argparse.ArgumentParser(description='Please use command line options in the form --commands')
     log_levels = ('DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL')
@@ -50,6 +51,7 @@ def main() -> 1:
     parser.add_argument('-m', '--max_time', type=int, default=2,
         help='The maximum time for each job to sleep.')
     args = parser.parse_args()
+    # --------------------------------------------------
     # Set up logging
     if args.log_file:
         # Note: filemode is set to clobber by default
@@ -59,11 +61,14 @@ def main() -> 1:
         logging.basicConfig(format='%(levelname)s:%(message)s',
             level=args.log_level, stream=sys.stdout)
 
+    # --------------------------------------------------
+    # Functionality starts here
     with ProcessPoolExecutor() as PPE:
         job_future_list = [PPE.submit(a_job, n, args.max_time) for n in range(args.num_jobs)]
         for job_future in as_completed(job_future_list):
             print(job_future.result())
+            
     return 0
 
 if __name__ == '__main__':
-    raise SystemExit(main())
+    sys.exit(main())

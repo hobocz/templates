@@ -46,6 +46,7 @@ def get_a_number() -> int:
     return num
 
 def main() -> 1:
+    # --------------------------------------------------
     # Parse command line arguments
     parser = argparse.ArgumentParser(description='Please use command line options in the form --commands')
     log_levels = ('DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL')
@@ -56,6 +57,7 @@ def main() -> 1:
     parser.add_argument('-t', '--total_numbers', type=int, default=5,
         help='The total random numbers you want.')
     args = parser.parse_args()
+    # --------------------------------------------------
     # Set up logging
     if args.log_file:
         # Note: filemode is set to clobber by default
@@ -65,12 +67,15 @@ def main() -> 1:
         logging.basicConfig(format='%(levelname)s:%(message)s',
             level=args.log_level, stream=sys.stdout)
 
+    # --------------------------------------------------
+    # Functionality starts here
     odds_only = []
     for t in range(args.total_numbers):
         odds_only.append(get_a_number())
     print('Here\'s my final list of numbers:')
     print(odds_only)
+    
     return 0
 
 if __name__ == '__main__':
-    raise SystemExit(main())
+    sys.exit(main())
