@@ -1,0 +1,69 @@
+==================================================
+The file contains 30 teams and 790 players
+==================================================
+Here is the mean On-base Plus Slugging and Home Runs for each
+team, but only including players with at least 50 games:
+--------------------------------------------------
+        OPS    HR
+Team
+LAD   0.768  16.1
+ATL   0.744  17.6
+TOR   0.736  15.8
+NYM   0.731  12.2
+HOU   0.730  15.8
+MIL   0.728  16.5
+MIN   0.724  11.7
+NYY   0.722  18.9
+BOS   0.720   9.6
+WSN   0.719   9.7
+STL   0.716  12.2
+PHI   0.716  14.8
+SFG   0.712  10.6
+CIN   0.707   8.4
+SDP   0.702  10.1
+CHC   0.699  10.9
+SEA   0.698  13.3
+KCR   0.691   8.3
+COL   0.687  10.3
+BAL   0.687  13.3
+CHW   0.686   8.9
+ARI   0.686  11.8
+TEX   0.678  13.3
+LAA   0.677  13.2
+TBR   0.670   7.9
+CLE   0.669   8.8
+MIA   0.658   8.1
+PIT   0.655   9.3
+DET   0.623   7.2
+OAK   0.613   7.9
+==================================================
+Here are the top 10 Battting Averages for players with at
+least 200 Plate Appearances:
+--------------------------------------------------
+Player
+Jeff McNeil*        0.326
+Freddie Freeman*    0.325
+Joey Meneses        0.324
+Paul Goldschmidt    0.317
+Luis Arraez*        0.316
+Aaron Judge         0.311
+Xander Bogaerts     0.307
+Yordan Alvarez*     0.306
+José Abreu          0.304
+Nathaniel Lowe*     0.302
+==================================================
+Here are the top 10 Home Run to Strike Out Ratios for players
+with at least 50 Plate Appearances:
+--------------------------------------------------
+                    HR   SO  HSRatio
+Player
+Albert Pujols       24   55    0.436
+Matt Carpenter*     15   35    0.429
+Nolan Arenado       30   72    0.417
+Aaron Judge         62  175    0.354
+Jose Ramirez#       29   82    0.354
+Yordan Alvarez*     37  106    0.349
+Danny Jansen        15   44    0.341
+Mookie Betts        35  104    0.337
+Willians Astudillo   1    3    0.333
+Jose Altuve         28   87    0.322
