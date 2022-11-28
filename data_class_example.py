@@ -17,24 +17,6 @@ import logging
 import pathlib
 import data_class_module as dcm
 
-def example_function(parameter_a: int = 1) -> str:
-    """
-    Do <this> and return <that>.
-
-    Parameters
-    ----------
-    parameter_a : int
-        The number of times to print a message.
-
-    Returns
-    -------
-    str
-        A string saying something cool.
-    """
-    for x in range(parameter_a):
-        logging.error('Test Error message ' + str(x+1))
-    return 'Did it!'
-
 def main() -> 1:
     # --------------------------------------------------
     # Parse command line arguments
