@@ -35,7 +35,7 @@ def a_job(job_id: int = 1, max_time: int = 2) -> str:
     """
     interval = random.randint(1, max_time)
     sleep(interval)
-    return 'Job #' + str(job_id) + ', interval: ' + str(interval)
+    return f'Job #{str(job_id)}, interval: {str(interval)}'
 
 def main() -> 1:
     # --------------------------------------------------

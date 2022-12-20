@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 File name: pandas_example.py
 Description: Reads a csv file of 2022 baseball batting

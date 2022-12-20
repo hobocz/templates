@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 File name: pandas_example.py
 Description: Reads a csv file of 2022 baseball batting
@@ -67,7 +68,7 @@ def main() -> 1:
     # Create a scatterplot with trend line for home runs vs strike outs, and show
     # the correlation value in the title
     corr_value = PBDF['HR'].corr(PBDF['SO'], method = 'pearson')
-    title_str = 'Home Runs vs Strike Outs\nPearson Correlation: ' + str(round(corr_value, 2))
+    title_str = f'Home Runs vs Strike Outs\nPearson Correlation: {str(round(corr_value, 2))}'
     PBDF.plot.scatter(x ='HR', y ='SO', title = title_str, xlabel = 'Home Runs', ylabel = 'Strike Outs')
     # 'z' and 'p' below are for calculating the trendline
     z = np.polyfit(PBDF['HR'], PBDF['SO'], 1)

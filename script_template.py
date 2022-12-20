@@ -31,7 +31,7 @@ def example_function(parameter_a: int = 1) -> str:
         A string saying something cool.
     """
     for x in range(parameter_a):
-        logging.error('Test Error message ' + str(x+1))
+        logging.error(f'Test Error message {str(x+1)}')
     return 'Did it!'
 
 def main() -> 1:

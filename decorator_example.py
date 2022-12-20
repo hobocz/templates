@@ -42,7 +42,7 @@ def get_a_number() -> int:
         Random integer.
     """
     num = random.randint(1, 10)
-    logging.info('Got number: ' + str(num))
+    logging.info(f'Got number: {str(num)}')
     return num
 
 def main() -> 1:

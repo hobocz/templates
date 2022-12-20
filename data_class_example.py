@@ -49,7 +49,7 @@ def main() -> 1:
     comp = dcm.Company('FooBar', [a,b,c])
     print('The company', comp.name, 'has these employees:')
     for emp in comp.employees:
-        print(emp.full_name() + ': ' + emp.dept)
+        print(f'{emp.full_name()}: {emp.dept}')
 
     return 0
 

@@ -8,7 +8,7 @@ class Person:
     age: int
 
     def full_name(self) -> str:
-        return(self.f_name + ' ' + self.l_name)
+        return(f'{self.f_name} {self.l_name}')
 
 @dataclass
 class Employee(Person): # inheritance
