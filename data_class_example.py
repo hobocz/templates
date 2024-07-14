@@ -15,7 +15,7 @@ import sys
 import argparse
 import logging
 import pathlib
-import data_class_module as dcm
+from data_class_module import Company, Employee
 
 def main() -> 1:
     # --------------------------------------------------
@@ -39,14 +39,14 @@ def main() -> 1:
 
     # --------------------------------------------------
     # Functionality starts here
-    a = dcm.Employee('John', 'Doe', 30)
+    a = Employee('John', 'Doe', 30)
     print('A new employee:', a.full_name())
-    b = dcm.Employee('Jane', 'Doe', 32, 62534, 'Accounting')
+    b = Employee('Jane', 'Doe', 32, 62534, 'Accounting')
     print('A new employee:', b.full_name())
-    c = dcm.Employee('Jane', 'Doe', 32, 62534, 'HR')
+    c = Employee('Jane', 'Doe', 32, 62534, 'HR')
     print('Employee "c" changed her department:', c.dept)
     print('Same employee?:', b == c)
-    comp = dcm.Company('FooBar', [a,b,c])
+    comp = Company('FooBar', [a,b,c])
     print('The company', comp.name, 'has these employees:')
     for emp in comp.employees:
         print(f'{emp.full_name()}: {emp.dept}')
