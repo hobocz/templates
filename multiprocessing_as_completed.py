@@ -2,7 +2,10 @@
 """
 File name: multiprocessing_example.py
 Description: A simple starter template for the 'use as completed' 
-    multiprocessing pattern.
+    multiprocessing pattern. NOTE: This implementation uses
+    ProcessPoolExecutor and as_completed from concurrent.futures.
+    I found this to be a simple, intuitive and robust choice
+    however there are certainly other options.
 Author: Chris Zaleski
 Python Version: 3.x
 Date: 2022-11-05
