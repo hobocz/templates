@@ -6,16 +6,15 @@ These are simple templates and examples, and are *not meant to display complex
 functionality*. They are only meant to be starting points, and to demonstrate
 things like coding style and thoroughness.
 Some of the functionality represented:
-- pandas
+- pandas, numpy and matplotlib
 - multiprocessing
-- pathlib
+- data classes
 - docstrings
 - type hinting
 - decorators
-- data classes
+- pathlib
 - argparse
 - logging
-- a bit of numpy and matplotlib
 
 PLEASE NOTE: Rigorous testing is still required as there are certainly
 some environments, parameters, etc, that were not accommodated and may
