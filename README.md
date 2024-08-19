@@ -1,4 +1,4 @@
-#### A collection of templates for various Python functionality. These scripts were created with:
+### A collection of templates for various Python functionality. These scripts were created with:
 [python 3.10.6, pandas 1.5.1, numpy 1.23.4, matplotlib 3.6.2] 
 They have undergone basic testing in both Windows and Linux systems.
 
