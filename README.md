@@ -16,7 +16,7 @@ Some of the functionality represented:
 - argparse
 - logging
 
-PLEASE NOTE: Rigorous testing is still required as there are certainly
+Note: More rigorous testing should be performed as there are certainly
 some environments, parameters, etc, that were not accommodated and may
 uncover issues.
 
